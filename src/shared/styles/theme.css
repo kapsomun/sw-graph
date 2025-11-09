@@ -1,0 +1,86 @@
+:root {
+  --sw-bg: #000000;
+  --sw-text: #e5e7eb;
+  --sw-muted: #9ca3af;
+
+  /* accent colors: “holo blue” and “jedi yellow” */
+  --sw-holo: #00d1ff;
+  --sw-jedi: #ffe81f;
+
+  /* panels / cards */
+  --sw-panel: rgba(15, 23, 42, 0.6);
+  --sw-border: rgba(148, 163, 184, 0.2);
+
+  /* graph edge colors */
+  --sw-edge: rgba(0, 209, 255, 0.55);
+  --sw-edge-muted: rgba(148, 163, 184, 0.35);
+}
+
+/* general */
+html, body, #root {
+  height: 100%;
+}
+html, body { background: transparent; }
+
+body {
+  color: var(--sw-text);
+  font-family: Orbitron, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+#root {
+  z-index: 1;
+  position: relative;
+}
+
+* { box-sizing: border-box; }
+
+/* Star Wars style headings */
+.sw-title {
+  font-family: Orbitron, Inter, system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* “Holographic” panel/card effect */
+.sw-panel {
+  background: var(--sw-panel);
+  border: 1px solid var(--sw-border);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 0.5px var(--sw-holo), 0 0 24px rgba(0, 209, 255, 0.08) inset;
+  border-radius: 12px;
+}
+
+/* Buttons */
+.sw-btn {
+  border: 1px solid var(--sw-border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+.sw-btn:hover { box-shadow: 0 0 0.5px var(--sw-holo); }
+
+/* Glowing loader (used for loading states) */
+.sw-glow {
+  box-shadow: 0 0 12px rgba(255, 232, 31, 0.45), 0 0 32px rgba(255, 232, 31, 0.2);
+}
+
+/* Dashed border for nodes with no starships */
+.sw-dashed { border-style: dashed; }
+
+/* Shimmer effect for skeleton placeholders */
+.sw-skeleton {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255,255,255,0.06);
+}
+.sw-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  animation: sw-shimmer 1.2s infinite;
+}
+@keyframes sw-shimmer {
+  100% { transform: translateX(100%); }
+}
