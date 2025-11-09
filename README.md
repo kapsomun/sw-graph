@@ -37,8 +37,7 @@ src/
  └─ utils/             # Test helpers
 tests/
  ├─ msw/               # Mock Service Worker setup
- ├─ utils/             # Shared render utilities
- └─ ...                # Individual test files
+ └─ utils/             # Shared render utilities
 ```
 
 ---
